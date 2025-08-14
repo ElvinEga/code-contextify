@@ -94,7 +94,7 @@ async function generateTree(dir, prefix = "", includedFiles = new Set(), ig) {
       const size = formatSize(stats.size);
       const isIncluded = !shouldSkipContent(itemPath);
       const indicator = isIncluded ? "" : " ✗";
-      result += `${prefix}${connector}${item} (${size})${indicator}\n`;
+      result += `${prefix}${connector}${item} ${indicator}\n`;
     } else {
       result += `${prefix}${connector}${item}/\n`;
       result += await generateTree(
@@ -186,6 +186,7 @@ async function main() {
         const relPath = path.relative(folderPath, file.path);
 
         output += `${relPath}\n`;
+        output += "---------------------------------------------------------\n";
         output += content;
         output +=
           "\n---------------------------------------------------------\n";
