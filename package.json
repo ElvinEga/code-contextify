@@ -1,17 +1,17 @@
 {
-  "name": "folder2text",
-  "version": "0.0.6",
-  "description": "Convert entire project directories to a single text file, perfect for documentation and AI context sharing",
+  "name": "code-contextify",
+  "version": "1.0.0",
+  "description": "Transform entire codebases into AI-ready context. Perfect for LLM prompting, code documentation, and project analysis.",
   "main": "index.js",
   "bin": {
-    "folder2text": "./cli.js"
+    "code-contextify": "./cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oritromax/folder2text.git"
+    "url": "git+https://github.com/ElvinEga/code-contextify.git"
   },
   "keywords": [
     "folder",
@@ -26,12 +26,13 @@
   "license": "MIT AND Commons Clause",
   "dependencies": {
     "commander": "^12.1.0",
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "ignore": "^7.0.5"
   },
   "bugs": {
-    "url": "https://github.com/oritromax/folder2text/issues"
+    "url": "https://github.com/ElvinEga/code-contextify/issues"
   },
-  "homepage": "https://github.com/oritromax/folder2text#readme",
+  "homepage": "https://github.com/ElvinEga/code-contextify#readme",
   "engines": {
     "node": ">=14.0.0"
   }
