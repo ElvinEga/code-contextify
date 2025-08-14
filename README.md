@@ -114,38 +114,27 @@ Project Statistics:
 Total Files: 42
 Total Size: 1.25 MB
 
-File Types:
-  .js: 15 files
-  .json: 3 files
-  .md: 2 files
-  ...
-
-Detected Technologies:
-  - TypeScript
-  - React
-  - Node.js
 ```
 
 ### 🌳 Smart Directory Tree
 ```
 Folder Structure (Tree)
 =====================
-Legend: ✓ = Included | ✗ = Excluded
-├── src/ ✓
-│   ├── components/ ✓
-│   │   ├── Header.js ✓
-│   │   └── Footer.js ✓
-│   └── utils/ ✓
+Legend: ✗ = Excluded
+├── src/
+│   ├── components/
+│   │   ├── Header.js
+│   │   └── Footer.js
+│   └── utils/
 ├── node_modules/ ✗
 ├── package-lock.json (123.45 KB) ✗
-└── README.md (2.34 KB) ✓
+└── README.md (2.34 KB)
 ```
 
 ### 📄 File Contents
 ```
-File Name: src/components/Header.js
-Size: 2.34 KB
-Code:
+src/components/Header.js
+------------------------
 import React from 'react';
 // ... actual file content
 ```
