@@ -93,7 +93,7 @@ async function generateTree(dir, prefix = "", includedFiles = new Set(), ig) {
     if (stats.isFile()) {
       const size = formatSize(stats.size);
       const isIncluded = !shouldSkipContent(itemPath);
-      const indicator = isIncluded ? " ✓" : " ✗";
+      const indicator = isIncluded ? "" : " ✗";
       result += `${prefix}${connector}${item} (${size})${indicator}\n`;
     } else {
       result += `${prefix}${connector}${item}/\n`;
@@ -163,8 +163,7 @@ async function main() {
     const timestamp = Math.floor(date.getTime() / 1000);
 
     const folderName = path.basename(folderPath);
-    const outputFileName =
-      program.args[1] || `${folderName}_${dateStr}_${timestamp}.txt`;
+    const outputFileName = program.args[1] || `contextify-output.txt`;
 
     console.log("Collecting files...");
     const files = await getAllFiles(folderPath, ig);
@@ -180,22 +179,8 @@ async function main() {
     output += `Total Files: ${totalFiles}\n`;
     output += `Total Size: ${formatSize(totalSize)}\n\n`;
 
-    output += `File Types:\n`;
-    Object.entries(fileTypes)
-      .sort(([, a], [, b]) => b - a)
-      .forEach(([ext, count]) => {
-        output += `  ${ext || "no extension"}: ${count} files\n`;
-      });
-
-    output += `\nDetected Technologies:\n`;
-    Array.from(technologies)
-      .sort()
-      .forEach((tech) => {
-        output += `  - ${tech}\n`;
-      });
-
     output += "\nFolder Structure (Tree)\n=====================\n";
-    output += "Legend: ✓ = Included in output, ✗ = Excluded from output\n\n";
+    output += "Legend: ✗ = Excluded from output\n\n";
     output += treeStructure;
     output += "\n==============\n";
 
