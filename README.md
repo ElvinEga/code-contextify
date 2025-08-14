@@ -1,66 +1,115 @@
-# folder2text
+# 🧠 code-contextify
 
-Convert entire project directories into a single, well-organized text file. Perfect for documentation, AI context sharing, and project analysis.
+**Transform your entire codebase into AI-ready context in seconds**
 
-## Overview
+[![npm version](https://badge.fury.io/js/code-contextify.svg)](https://badge.fury.io/js/code-contextify)
+[![Node.js](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org)
+[![License](https://img.shields.io/npm/l/code-contextify)](LICENSE)
 
-`folder2text` is a command-line utility that transforms your project directory into a comprehensive text document. It generates a complete overview including project statistics, file types, detected technologies, and a full directory tree structure, along with the contents of all text-based files.
+> *"Turn thousands of files into one perfect prompt for your AI assistant"*
 
-## Features
+---
 
-- 📊 **Project Statistics**: Total file count and size analysis  
-- 🌳 **Directory Tree**: Visual representation of your project structure  
-- 🔍 **Technology Detection**: Automatic identification of frameworks and languages  
-- 📝 **Content Extraction**: Intelligent handling of text-based files  
-- 🚫 **Smart Filtering**: Automatic skipping of:  
-  - Binary files  
-  - Configuration files (`package-lock.json`, `.env`, etc.)  
-  - Common directories (`node_modules`, `.git`, etc.)  
-  - Media files (images, videos, etc.)
+## 🚀 Why code-contextify?
 
-- 🔧**Manual Filtering**: Option for Manually filtering Specific path and patterns
-  - 📄 **Output File**: Customizable output file name
-  - 🔍 **Filtering**: Option to filter specific paths or patterns
+Fed up with copying and pasting files into ChatGPT? Struggling to give Claude the full picture of your project? **code-contextify** solves this by creating a single, comprehensive text file containing your entire project structure and content - perfectly formatted for AI consumption.
 
-## Installation
+### Perfect For:
+- 🤖 **LLM Prompting** - Give AI assistants complete project context
+- 📚 **Documentation** - Generate instant project overviews
+- 🔍 **Code Reviews** - Share full context with teammates
+- 📊 **Project Analysis** - Understand complex codebases quickly
+- 🎯 **Debugging** - Let AI analyze your entire codebase at once
 
-### NPM (Node.js)
+---
 
-```bash
-npm install -g folder2text
-```
-
-## Usage
-
-The output file will contain:
-
-- Project overview with statistics  
-- List of file types and their counts  
-- Detected technologies  
-- Complete directory tree structure  
-- Contents of all text-based files  
-
-### Example output structure:
+## 🎯 Quick Start
 
 ```bash
-folder2text /path/to/folder
+# Install globally
+npm install -g code-contextify
+
+# Transform any project into AI context
+code-contextify /path/to/your/project
+
+# That's it! Your context file is ready 🎉
 ```
 
-### Filter out specific folders
-```folder2text /path/to/folder --filter "tests,docs"```
+---
 
-### Filter with path patterns
-```folder2text /path/to/folder --filter "src/tests,src/docs"```
+## 🛠️ Installation
 
-### Combined with output file name
-```folder2text /path/to/folder output.txt --filter "tests,examples,temp"```
+### Prerequisites
+- Node.js >= 14.0.0
 
-The output will look like:
+### Install Options
 
-```text
-Project Overview
-===============
+```bash
+# Global installation (recommended)
+npm install -g code-contextify
 
+# Or use npx without installing
+npx code-contextify /path/to/project
+```
+
+---
+
+## 🎮 Usage Guide
+
+### Basic Usage
+```bash
+# Convert current directory
+code-contextify .
+
+# Convert specific directory
+code-contextify /path/to/your/project
+
+# Custom output filename
+code-contextify . my-project-context.txt
+```
+
+### Advanced Filtering
+```bash
+# Exclude specific folders
+code-contextify . --filter "node_modules,dist,build"
+
+# Exclude files with specific patterns
+code-contextify . --filter "test,__mocks__,*.spec.js"
+
+# Complex filtering with paths
+code-contextify . --filter "src/tests,docs,temp,*.log"
+```
+
+### Real-World Examples
+
+#### 1. **Prepare for AI Code Review**
+```bash
+code-contextify . review-context.txt --filter "node_modules,dist,*.min.js"
+```
+
+#### 2. **Share Project Context with Team**
+```bash
+code-contextify /path/to/project team-brief.txt
+```
+
+#### 3. **Create Documentation Context**
+```bash
+code-contextify . docs-context.txt --filter "tests,__tests__,*.test.*"
+```
+
+#### 4. **Debug with AI Assistant**
+```bash
+code-contextify . debug-context.txt --filter "node_modules,*.log,temp"
+```
+
+---
+
+## 📋 What's In The Output?
+
+Your generated context file includes:
+
+### 📊 Project Overview
+```
 Project Statistics:
 Total Files: 42
 Total Size: 1.25 MB
@@ -74,53 +123,171 @@ File Types:
 Detected Technologies:
   - TypeScript
   - React
-  ...
-
-Folder Structure (Tree)
-=====================
-├── src
-│   ├── components
-│   └── utils
+  - Node.js
 ```
 
-## Use Cases
+### 🌳 Smart Directory Tree
+```
+Folder Structure (Tree)
+=====================
+Legend: ✓ = Included | ✗ = Excluded
+├── src/ ✓
+│   ├── components/ ✓
+│   │   ├── Header.js ✓
+│   │   └── Footer.js ✓
+│   └── utils/ ✓
+├── node_modules/ ✗
+├── package-lock.json (123.45 KB) ✗
+└── README.md (2.34 KB) ✓
+```
 
-- 📚 Creating comprehensive project documentation  
-- 🤖 Sharing project context with AI/LLM systems  
-- 📊 Project analysis and auditing  
-- 👥 Code review and collaboration  
-- 📦 Project archival and documentation  
+### 📄 File Contents
+```
+File Name: src/components/Header.js
+Size: 2.34 KB
+Code:
+import React from 'react';
+// ... actual file content
+```
 
-## License
+---
 
-This project is licensed under **MIT with Commons Clause**, which means:
+## 🧠 AI Prompting Tips
 
-- ✅ Free for personal and open-source use  
-- ✅ Can be forked and modified  
-- ✅ Can be used as a reference for other open-source projects  
-- ❌ Cannot be used for commercial purposes without permission  
+### Perfect Prompts to Use:
+```
+Here's the complete context of my project.
+Please help me [your specific request]:
 
-## About the Author
+[Generated context content here]
+```
 
-Hi! I'm **Nidal Siddique Oritro**, a developer passionate about creating tools that make developers' lives easier. I enjoy building utilities that bridge the gap between traditional development workflows and modern AI-powered development.  
+### Common Use Cases:
+- **"Explain this codebase to me"**
+- **"Find potential bugs in this project"**
+- **"Suggest improvements to this architecture"**
+- **"Write documentation for this project"**
+- **"Help me understand how these components work together"**
 
-Learn more about me and my projects at [iam.ioritro.com](https://iam.ioritro.com).
+---
 
-## Contributing
+## ⚙️ How It Works
 
-Contributions are welcome! Feel free to:
+### Smart Filtering System
+✅ **Automatically Excludes:**
+- Binary files (images, executables, etc.)
+- Configuration files (`package-lock.json`, `.env`)
+- Common directories (`node_modules`, `.git`)
+- Git-ignored files and patterns
+- Media files (videos, audio, etc.)
 
-1. Fork the repository  
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)  
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)  
-4. Push to the branch (`git push origin feature/AmazingFeature`)  
-5. Open a Pull Request  
+✅ **Intelligently Includes:**
+- Source code files
+- Documentation
+- Configuration files you actually need
+- Text-based assets
 
-## Support
+### Technology Detection
+Automatically identifies:
+- JavaScript/TypeScript
+- React/Vue/Angular
+- Python
+- And many more!
 
-If you encounter any issues or have questions:
+---
 
-- Check the [Issues page](https://github.com/oritromax/folder2text/issues)  
-- Open a new issue if needed  
-- Join the discussion  
+## 🎯 Pro Tips
 
+### 1. **Optimize for Different AI Models**
+```bash
+# For models with smaller context windows
+code-contextify . --filter "tests,docs,examples,*.md"
+
+# For models with large context windows
+code-contextify .  # Include everything!
+```
+
+### 2. **Create Project Snapshots**
+```bash
+# Timestamped context files
+code-contextify . project_$(date +%Y%m%d_%H%M%S).txt
+```
+
+### 3. **Focus on Specific Areas**
+```bash
+# Only include source code
+code-contextify . --filter "tests,docs,*.md,*.json,*.yml"
+
+# Only include tests
+code-contextify . tests-context.txt --filter "src,docs,*.md"
+```
+
+---
+
+## 🛡️ Security & Privacy
+
+- **Local Processing** - Your code never leaves your machine
+- **Respects .gitignore** - Doesn't include ignored files
+- **No Telemetry** - Zero data collection
+- **Open Source** - Audit the code yourself
+
+---
+
+## 🤝 Contributing
+
+Contributions welcome! Here's how to get started:
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/AmazingFeature`
+3. Commit your changes: `git commit -m 'Add some AmazingFeature'`
+4. Push to the branch: `git push origin feature/AmazingFeature`
+5. Open a Pull Request
+
+### Areas Needing Help:
+- 🌍 Language detection improvements
+- 🎨 Better output formatting
+- ⚡ Performance optimizations
+- 📚 More examples and documentation
+- 🧪 Test coverage
+
+---
+
+## 📄 License
+
+This project is licensed under **MIT with Commons Clause** - see the [LICENSE](LICENSE) file for details.
+
+**Commercial use requires permission.**
+
+---
+
+## 👨‍💻 Author
+
+**Nidal Siddique Oritro**
+- Website: [iam.ioritro.com](https://iam.ioritro.com)
+- GitHub: [@ElvinEga](https://github.com/ElvinEga)
+
+Built with ❤️ for developers working with AI
+
+---
+
+## 🆘 Support
+
+Need help?
+
+- 🐛 [Report an issue](https://github.com/ElvinEga/code-contextify/issues)
+- 💬 Join discussions
+- 📧 Contact the author
+
+---
+
+## 🌟 Show Your Support
+
+If this tool saves you time:
+- ⭐ Star this repository
+- 🐦 Tweet about it
+- 🤝 Recommend to fellow developers
+- 💖 Sponsor the project
+
+---
+
+*"Turn your codebase into conversation - one context file at a time"*
