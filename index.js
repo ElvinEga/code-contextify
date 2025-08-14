@@ -158,11 +158,6 @@ async function main() {
     // Load .gitignore
     const ig = await loadGitignore(folderPath);
 
-    const date = new Date();
-    const dateStr = `${(date.getMonth() + 1).toString().padStart(2, "0")}${date.getDate().toString().padStart(2, "0")}${date.getFullYear()}`;
-    const timestamp = Math.floor(date.getTime() / 1000);
-
-    const folderName = path.basename(folderPath);
     const outputFileName = program.args[1] || `contextify-output.txt`;
 
     console.log("Collecting files...");
