@@ -190,11 +190,10 @@ async function main() {
         const content = await fs.readFile(file.path, "utf8");
         const relPath = path.relative(folderPath, file.path);
 
-        output += `\nFile Name: ${relPath}\n`;
-        output += `Size: ${formatSize(file.size)}\n`;
-        output += "Code:\n";
+        output += `${relPath}\n`;
         output += content;
-        output += "\n-------- [ Separator ] ------\n";
+        output +=
+          "\n---------------------------------------------------------\n";
       } catch (error) {
         console.error(`Error reading file ${file.path}:`, error.message);
       }
