@@ -1,6 +1,6 @@
 {
   "name": "code-contextify",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Transform entire codebases into AI-ready context. Perfect for LLM prompting, code documentation, and project analysis.",
   "main": "index.js",
   "bin": {
