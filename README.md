@@ -2,7 +2,7 @@
 
 **Transform your entire codebase into AI-ready context in seconds**
 
-[![npm version](https://badge.fury.io/js/code-contextify.svg)](https://www.npmjs.com/package/code-contextify)
+[![npm version](https://badge.fury.io/js/code-contextify.svg?icon=si%3Anpm)](https://badge.fury.io/js/code-contextify)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org)
 [![License](https://img.shields.io/npm/l/code-contextify)](LICENSE)
 
