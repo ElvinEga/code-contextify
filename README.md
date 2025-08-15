@@ -1,3 +1,4 @@
+---
 # 🧠 code-contextify
 
 **Transform your entire codebase into AI-ready context in seconds**
@@ -29,7 +30,10 @@ Fed up with copying and pasting files into ChatGPT? Struggling to give Claude th
 # Install globally
 npm install -g code-contextify
 
-# Transform any project into AI context
+# Navigate to your project folder and run:
+code-contextify
+
+# Or, to analyze a different directory:
 code-contextify /path/to/your/project
 
 # That's it! Your context file is ready 🎉
@@ -59,32 +63,32 @@ npx code-contextify /path/to/project
 ### Basic Usage
 ```bash
 # Convert current directory
-code-contextify .
+code-contextify
 
 # Convert specific directory
 code-contextify /path/to/your/project
 
-# Custom output filename
-code-contextify . my-project-context.txt
+# Custom output filename in current directory
+code-contextify my-project-context.txt
 ```
 
 ### Advanced Filtering
 ```bash
-# Exclude specific folders
-code-contextify . --filter "node_modules,dist,build"
+# Exclude specific folders from the current directory
+code-contextify --filter "node_modules,dist,build"
 
 # Exclude files with specific patterns
-code-contextify . --filter "test,__mocks__,*.spec.js"
+code-contextify --filter "test,__mocks__,*.spec.js"
 
 # Complex filtering with paths
-code-contextify . --filter "src/tests,docs,temp,*.log"
+code-contextify --filter "src/tests,docs,temp,*.log"
 ```
 
 ### Real-World Examples
 
 #### 1. **Prepare for AI Code Review**
 ```bash
-code-contextify . review-context.txt --filter "node_modules,dist,*.min.js"
+code-contextify review-context.txt --filter "node_modules,dist,*.min.js"
 ```
 
 #### 2. **Share Project Context with Team**
@@ -94,12 +98,12 @@ code-contextify /path/to/project team-brief.txt
 
 #### 3. **Create Documentation Context**
 ```bash
-code-contextify . docs-context.txt --filter "tests,__tests__,*.test.*"
+code-contextify docs-context.txt --filter "tests,__tests__,*.test.*"
 ```
 
 #### 4. **Debug with AI Assistant**
 ```bash
-code-contextify . debug-context.txt --filter "node_modules,*.log,temp"
+code-contextify debug-context.txt --filter "node_modules,*.log,temp"
 ```
 
 ---
@@ -190,25 +194,25 @@ Automatically identifies:
 ### 1. **Optimize for Different AI Models**
 ```bash
 # For models with smaller context windows
-code-contextify . --filter "tests,docs,examples,*.md"
+code-contextify --filter "tests,docs,examples,*.md"
 
 # For models with large context windows
-code-contextify .  # Include everything!
+code-contextify  # Include everything!
 ```
 
 ### 2. **Create Project Snapshots**
 ```bash
 # Timestamped context files
-code-contextify . project_$(date +%Y%m%d_%H%M%S).txt
+code-contextify project_$(date +%Y%m%d_%H%M%S).txt
 ```
 
 ### 3. **Focus on Specific Areas**
 ```bash
 # Only include source code
-code-contextify . --filter "tests,docs,*.md,*.json,*.yml"
+code-contextify --filter "tests,docs,*.md,*.json,*.yml"
 
 # Only include tests
-code-contextify . tests-context.txt --filter "src,docs,*.md"
+code-contextify tests-context.txt --filter "src,docs,*.md"
 ```
 
 ---

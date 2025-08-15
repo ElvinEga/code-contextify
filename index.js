@@ -5,7 +5,10 @@ const ignore = require("ignore");
 const { shouldSkipTraversal, shouldSkipContent } = require("./ignore");
 
 program
-  .argument("<folderPath>", "Path to the target folder")
+  .argument(
+    "[folderPath]",
+    "Path to the target folder (defaults to current directory)",
+  )
   .argument("[outputName]", "Output file name (optional)")
   .option(
     "-f, --filter <patterns>",
@@ -13,7 +16,7 @@ program
   )
   .parse();
 
-const [folderPath] = program.args;
+const folderPath = program.args[0] || ".";
 const options = program.opts();
 const additionalFilters = options.filter
   ? options.filter.split(",").map((p) => p.trim())
